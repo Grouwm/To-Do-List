@@ -7,3 +7,4 @@ checkbox.addEventListener("change", () => {
   });
 });
 import { addNote, loadNotes } from "./functions.js";
+document.addEventListener("DOMContentLoaded", loadNotes);

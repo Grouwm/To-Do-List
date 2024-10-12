@@ -61,3 +61,9 @@ export function displayNoteInDOM(noteData) {
     noteContainer.appendChild(noteDescription);
     noteList.appendChild(noteContainer);
 }
+// clearing value
+export function clearInputs() {
+    titleInput.value = '';
+    descriptionInput.value = '';
+    dateInput.value = '';
+}

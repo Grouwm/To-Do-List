@@ -12,6 +12,36 @@ export function createID() {
 }
 // adding notes
 export function addNote() {
+  const title = titleInput.value.trim();
+  const description = descriptionInput.value.trim();
+  const date = dateInput.value;
+
+  // متغیر برای ذخیره رنگ انتخاب شده
+  let selectedColor = '';
+
+  // بررسی چک باکس‌ها
+  if (document.getElementById('redCheckbox').checked) {
+      selectedColor = 'red';
+  } else if (document.getElementById('greenCheckbox').checked) {
+      selectedColor = 'green';
+  } else if (document.getElementById('yellowCheckbox').checked) {
+      selectedColor = 'yellow';
+  }
+
+  if (title && description) {
+      const noteData = {
+          id: createID(), // Id generator
+          title,
+          description,
+          date,
+          completed: false,
+          color: selectedColor, // رنگ انتخاب شده اضافه شد
+      };
+
+      saveNoteToLS(noteData);
+      displayNoteInDOM(noteData);
+      clearInputs();
+  }
 }
 
 // display note function

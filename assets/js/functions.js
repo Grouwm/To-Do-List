@@ -67,3 +67,9 @@ export function clearInputs() {
     descriptionInput.value = '';
     dateInput.value = '';
 }
+// inserting notes into ls 
+export function saveNoteToLS(noteData) {
+    const notes = getNotesFromLS();
+    notes.push(noteData);
+    localStorage.setItem("notes", JSON.stringify(notes));
+}

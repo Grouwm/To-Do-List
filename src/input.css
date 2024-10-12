@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+      font-family: 'fedraarabic_title';
+      src: url(/assets/fonts/fedraarabic_title.ttf);
+    }
+    @font-face {
+      font-family: 'portadaARA_text';
+      src: url(/assets/fonts/portadaARA_text.otf);
+    }
+  }

@@ -78,3 +78,8 @@ export function getNotesFromLS() {
     const notesData = localStorage.getItem("notes");
     return notesData ? JSON.parse(notesData) : [];
 }
+// loading the oldnotes
+export function loadNotes() {
+    const notes = getNotesFromLS();
+    notes.forEach(displayNoteInDOM);
+}

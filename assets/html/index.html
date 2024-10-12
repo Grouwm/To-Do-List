@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work-Note</title>
+    <link href="../../src/output.css" rel="stylesheet">
+</head>
+
+<body class="w-full h-full m-auto p-0">
+
+    <div id="content" class="flex justify-center items-center m-auto gap-5 md:gap-10 flex-col md:flex-row">
+        <div class="bg-black p-5 rounded-lg my-auto">
+
+            <h1 class="text-white text-xl">Add note</h1>
+
+            <h2 id="label" class="text-white mt-10">Note title :</h2>
+            <form action="#" id="title-form">
+                <input id="title" class="mt-2 rounded-xl p-3 max-h-11"></input>
+            </form>
+
+            <h2 id="label" class="text-white mt-5">Note description :</h2>
+            <form action="#" id="description-form">
+                <input id="description" class="mt-2 rounded-xl p-3 max-h-11"></input>
+            </form>
+
+            <h2 id="label" class="text-white mt-5">Note optional :</h2>
+            <form action="#" id="data-form" class="flex justify-center items-center">
+                <input type="date" id="data" class="mt-2 rounded-xl p-3 max-h-11"></input>
+                <div class="bg-white px-3 py-2 ml-2 mt-2 rounded-xl ">
+                    <input id="myCheckbox" type="checkbox"
+                        class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-8 before:w-8 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-red-400 before:opacity-0 before:transition-opacity checked:border-red-400 checked:bg-[#e53935] checked:before:bg-red-400 hover:before:opacity-10 bg-[#e5383578]" />
+
+                    <input id="myCheckbox" type="checkbox"
+                        class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-8 before:w-8 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-green-400 before:opacity-0 before:transition-opacity checked:border-green-400 checked:bg-[#66bb6a] checked:before:bg-green-400 hover:before:opacity-10 bg-[#66bb6a78]" />
+
+                    <input id="myCheckbox" type="checkbox"
+                        class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-8 before:w-8 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-yellow-400 before:opacity-0 before:transition-opacity checked:border-yellow-400 checked:bg-[#ffee58] checked:before:bg-yellow-400 hover:before:opacity-10 bg-[#ffee5878]" />
+                </div>
+            </form>
+
+            <button class="text-black rounded-xl mt-5 w-full h-10 bg-white">Add note</button>
+
+        </div>
+
+        <div class="bg-black max-w-96 max-h-96 overflow-y-scroll p-5 rounded-lg my-auto">
+            <h1 class="text-white text-xl">Show note</h1>
+
+            <div class="p-1 mt-5 border border-white rounded-xl">
+                <div class="flex justify-start">
+
+                    <label class="relative flex cursor-pointer items-center justify-center rounded-full p-3"
+                        for="myCheckbox" data-ripple-dark="true">
+
+                        <input id="myCheckbox" type="checkbox"
+                            class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-8 before:w-8 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-400 before:opacity-0 before:transition-opacity checked:border-blue-400 checked:bg-[#1976d2] checked:before:bg-blue-400 hover:before:opacity-10" />
+
+                        <span
+                            class="pointer-events-none absolute top-2/4 left-4 -translate-y-2/4 -translate-x-1.5/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20"
+                                fill="currentColor" stroke="currentColor" stroke-width="1">
+
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+
+                            </svg>
+
+                        </span>
+
+                        <label for="myCheckbox"
+                            class="label ml-2 text-wh text-white text-base decoration-[#1976d2]">Text
+                            title</label>
+                        <br>
+                    </label>
+                </div>
+                <div class="pr-8">
+                    <label class="label text-gray-100 text-sm decoration-[#1976d2]"> 
+                    </label>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script  type="module"  src="/assets//js/functions.js"></script>
+    <script  type="module" src="/assets/js/note.js"></script>
+    
+
+</body>
+
+</html>

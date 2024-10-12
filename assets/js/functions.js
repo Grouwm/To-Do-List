@@ -12,28 +12,6 @@ export function createID() {
 }
 // adding notes
 export function addNote() {
-    const title = titleInput.value.trim();
-    const description = descriptionInput.value.trim();
-    const date = dateInput.value;
-
-    if (title && description) {
-        const noteData = {
-            id: createID(), // Id generator
-            title,
-            description,
-            date,
-            completed: false,
-        };
-
-       
-        saveNoteToLS(noteData);
-
-     
-        displayNoteInDOM(noteData);
-
-        
-        clearInputs();
-    }
 }
 
 // display note function

@@ -8,3 +8,8 @@ checkbox.addEventListener("change", () => {
 });
 import { addNote, loadNotes } from "./functions.js";
 document.addEventListener("DOMContentLoaded", loadNotes);
+const addNoteButton = document.querySelector("button");
+addNoteButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  addNote();
+});

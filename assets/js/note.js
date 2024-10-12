@@ -6,3 +6,4 @@ checkbox.addEventListener("change", () => {
     label.classList.toggle("line-through", checkbox.checked);
   });
 });
+import { addNote, loadNotes } from "./functions.js";

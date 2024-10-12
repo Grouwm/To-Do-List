@@ -73,3 +73,8 @@ export function saveNoteToLS(noteData) {
     notes.push(noteData);
     localStorage.setItem("notes", JSON.stringify(notes));
 }
+// getting the old notes from ls 
+export function getNotesFromLS() {
+    const notesData = localStorage.getItem("notes");
+    return notesData ? JSON.parse(notesData) : [];
+}

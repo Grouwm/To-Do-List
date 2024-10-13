@@ -22,17 +22,22 @@ section {
   justify-content: space-evenly;
   align-items: center;
 }
-.cards {
+.cards:first-of-type {
   height: 90%;
   width: 40%;
   border-radius: 25px;
-  box-shadow: 0px 0px 21.4px -2px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
+.cards:last-of-type {
+  height: 90%;
+  width: 40%;
+  border-radius: 25px;
+  box-shadow: 0px 0px 21.4px -2px;
+}
 /* title styles */
 .title {
   display: flex;
@@ -42,7 +47,7 @@ section {
   box-shadow: 0px 0px 21.4px -2px;
   border: none;
   outline: none;
-  width: 100%;
+  width: 360px;
   height: 55px;
   border-radius: 40px;
   background-color: rgba(22, 22, 22, 1);
@@ -57,7 +62,7 @@ section {
   box-shadow: 0px 0px 21.4px -2px;
   border: none;
   outline: none;
-  width: 100%;
+  width: 360px;
   height: 100px;
   border-radius: 40px;
   background-color: rgba(22, 22, 22, 1);

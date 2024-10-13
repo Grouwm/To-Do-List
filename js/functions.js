@@ -6,6 +6,7 @@ const greenColor = document.querySelector("#green");
 const yellowColor = document.querySelector("#yellow");
 const addNoteButton = document.querySelector("#save-btn");
 const noteList = document.querySelector("#items");
+const dateInput = document.querySelector("#date");
 
 // Unique ID generator
 export function createID() {
@@ -19,6 +20,7 @@ export function createID() {
 export function addNote() {
   const title = titleInput.value.trim();
   const description = descriptionInput.value.trim();
+  const date = dateInput.value;
 
   let selectedColor = "";
   if (redColor.classList.contains("selected")) {
@@ -34,9 +36,9 @@ export function addNote() {
       id: createID(),
       title,
       description,
+      date,
       color: selectedColor,
     };
-
     saveNoteToLS(noteData);
     displayNoteInDOM(noteData);
     clearInputs();
@@ -52,9 +54,10 @@ export function displayNoteInDOM(noteData) {
   }
 
   noteContainer.innerHTML = `
-        <div class="note-title">${noteData.title}</div>
-        <div class="note-description">${noteData.description}</div>
-    `;
+      <div class="note-title">${noteData.title}</div>
+      <div class="note-description">${noteData.description}</div>
+      <div class="note-date">${noteData.date}</div> 
+  `;
 
   noteList.appendChild(noteContainer);
 }
@@ -65,6 +68,8 @@ export function clearInputs() {
   redColor.classList.remove("selected");
   greenColor.classList.remove("selected");
   yellowColor.classList.remove("selected");
+  dateInput.value = ""; 
+
 }
 // Saving note to LS
 export function saveNoteToLS(noteData) {

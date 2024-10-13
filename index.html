@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do list</title>
+    <link href="style/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section>
+      <div id="main">
+        <div class="cards">
+          <div class="title">
+            <input type="text" placeholder="Title" id="title" />
+          </div>
+          <div class="description">
+            <input type="text" placeholder="Description" id="description" />
+          </div>
+          <div class="date-color">
+            <div></div>
+            <div>
+              <div id="red"></div>
+              <div id="green"></div>
+              <div id="yellow"></div>
+            </div>
+          </div>
+          <div class="save-btn">
+            <button id="save-btn">Save</button>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="to-do-list">
+            <h1>TO DO LIST</h1>
+          </div>
+          <div class="items">
+            <ul id="items"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="js/functions.js"></script>
+    <script type="module" src="js/note.js"></script>
+  </body>
+</html>

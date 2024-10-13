@@ -127,3 +127,15 @@ section {
   outline: none;
   font-size: 17px;
 }
+
+/* to do list styles */
+.to-do-list {
+  display: flex;
+  justify-content: center;
+}
+.to-do-list > h1 {
+  color: white;
+}
+#items > li {
+  color: white;
+}

@@ -1,91 +1,85 @@
+// Selecting elements
 const titleInput = document.querySelector("#title");
 const descriptionInput = document.querySelector("#description");
-const dateInput = document.querySelector("#data");
-const addNoteButton = document.querySelector("button");
-const noteList = document.querySelector(".p-1.mt-5");
-//id generator
+const redColor = document.querySelector("#red");
+const greenColor = document.querySelector("#green");
+const yellowColor = document.querySelector("#yellow");
+const addNoteButton = document.querySelector("#save-btn");
+const noteList = document.querySelector("#items");
+
+// Unique ID generator
 export function createID() {
   let dateNow = Date.now();
   let randomNum = (Math.random() * 1000).toFixed();
   let uniqueID = dateNow + randomNum;
   return uniqueID;
 }
-// adding notes
+
+// Add note function
 export function addNote() {
   const title = titleInput.value.trim();
   const description = descriptionInput.value.trim();
-  const date = dateInput.value;
+
+  let selectedColor = "";
+  if (redColor.classList.contains("selected")) {
+    selectedColor = "red";
+  } else if (greenColor.classList.contains("selected")) {
+    selectedColor = "green";
+  } else if (yellowColor.classList.contains("selected")) {
+    selectedColor = "yellow";
+  }
 
   if (title && description) {
     const noteData = {
-      id: createID(), // Id generator
+      id: createID(),
       title,
       description,
-      date,
-      completed: false,
+      color: selectedColor,
     };
 
     saveNoteToLS(noteData);
-
     displayNoteInDOM(noteData);
-
     clearInputs();
   }
 }
 
-// display note function
+// Display Note functions that uses DOM
 export function displayNoteInDOM(noteData) {
-  const noteContainer = document.createElement("div");
-  noteContainer.classList.add("flex", "justify-start");
+  const noteContainer = document.createElement("li");
+  noteContainer.classList.add("note-item");
+  if (noteData.color) {
+    noteContainer.classList.add(noteData.color);
+  }
 
-  const noteItem = document.createElement("label");
-  noteItem.classList.add(
-    "relative",
-    "flex",
-    "cursor-pointer",
-    "items-center",
-    "justify-center",
-    "rounded-full",
-    "p-3"
-  );
-  noteItem.innerHTML = `
-        <input type="checkbox" class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-8 before:w-8 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-400 before:opacity-0 before:transition-opacity checked:border-blue-400 checked:bg-[#1976d2] checked:before:bg-blue-400 hover:before:opacity-10"/>
-        <span class="pointer-events-none absolute top-2/4 left-4 -translate-y-2/4 -translate-x-1.5/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
-        </span>
-        <span class="ml-2 text-white text-base">${noteData.title}</span>
+  noteContainer.innerHTML = `
+        <div class="note-title">${noteData.title}</div>
+        <div class="note-description">${noteData.description}</div>
     `;
 
-  const noteDescription = document.createElement("div");
-  noteDescription.classList.add("pr-8");
-  noteDescription.innerHTML = `<label class="label text-gray-100 text-sm">${noteData.description}</label>`;
-
-  noteContainer.appendChild(noteItem);
-  noteContainer.appendChild(noteDescription);
   noteList.appendChild(noteContainer);
 }
-// clearing value
+// Clearing input values
 export function clearInputs() {
   titleInput.value = "";
   descriptionInput.value = "";
-  dateInput.value = "";
+  redColor.classList.remove("selected");
+  greenColor.classList.remove("selected");
+  yellowColor.classList.remove("selected");
 }
-// inserting notes into ls
+// Saving note to LS
 export function saveNoteToLS(noteData) {
   const notes = getNotesFromLS();
   notes.push(noteData);
   localStorage.setItem("notes", JSON.stringify(notes));
 }
-// getting the old notes from ls
+
+// Getting notes from LS
 export function getNotesFromLS() {
   const notesData = localStorage.getItem("notes");
   return notesData ? JSON.parse(notesData) : [];
 }
-// loading the oldNotes
+// Loading notes
 export function loadNotes() {
   const notes = getNotesFromLS();
   notes.forEach(displayNoteInDOM);
 }
-//add color to LS

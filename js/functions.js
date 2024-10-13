@@ -49,18 +49,16 @@ export function addNote() {
 export function displayNoteInDOM(noteData) {
   const noteContainer = document.createElement("li");
   noteContainer.classList.add("note-item");
+
   if (noteData.color) {
     noteContainer.classList.add(noteData.color);
   }
 
-  noteContainer.innerHTML = `
-      <div class="note-title">${noteData.title}</div>
-      <div class="note-description">${noteData.description}</div>
-      <div class="note-date">${noteData.date}</div> 
-  `;
+  noteContainer.textContent = `${noteData.title} - ${noteData.description} - ${noteData.date}`;
 
   noteList.appendChild(noteContainer);
 }
+
 // Clearing input values
 export function clearInputs() {
   titleInput.value = "";
@@ -68,8 +66,7 @@ export function clearInputs() {
   redColor.classList.remove("selected");
   greenColor.classList.remove("selected");
   yellowColor.classList.remove("selected");
-  dateInput.value = ""; 
-
+  dateInput.value = "";
 }
 // Saving note to LS
 export function saveNoteToLS(noteData) {

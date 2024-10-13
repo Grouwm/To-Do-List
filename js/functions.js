@@ -56,7 +56,9 @@ export function displayNoteInDOM(noteData) {
   noteContainer.innerHTML = `
 title:  <li>${noteData.title}</li>
 description: <ul><li>${noteData.description}</li></ul>
-date:  <ul><li>${noteData.date}</li></ul>`;
+date:  <ul><li>${noteData.date}</li></ul>
+color:  <ul><li>${noteData.color}</li></ul>
+`;
 
   noteList.appendChild(noteContainer);
 }
